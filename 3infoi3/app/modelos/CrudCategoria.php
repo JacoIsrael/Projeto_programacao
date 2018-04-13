@@ -13,9 +13,9 @@ class CrudCategoria
 {
     private $conexao;
     //getCattegorias() - retorna uma lista de objetos de todas as categorias
-    public function getCrategorias(){
+    public function getCategorias(){
         //CONEXAO
-        $this->conexao = DBConnection::getCategoria();
+        $this->conexao = DBConnection::getConexao();
 
         //SELECT
         $sql = 'select * from categoria';
@@ -26,7 +26,7 @@ class CrudCategoria
 
         $listaCategorias = [];
         foreach ($categorias as $categoria) {
-            $listaCategorias[] = new Categoria($categoria['id_categoria'], $categoria['nome'], $categoria['descricao']);
+            $listaCategorias[] = new Categoria($categoria['nome_categoria'], $categoria['descricao_categoria'], $categoria['id_categoria']);
         }
         return $listaCategorias;
     }
@@ -38,7 +38,7 @@ class CrudCategoria
         $this->conexao = DBConnection::getConexao();
 
         //criando a consulta
-        $sql = "select * from categoria where id_categoria".$id;
+        $sql = "select * from categoria where id_categoria=".$id;
 
         //executa a consulta, usando a conexao
         $result = $this->conexao->query($sql);
@@ -86,4 +86,4 @@ class CrudCategoria
 }
 
 $crud = new CrudCategoria();
-$cats = $crud->getCrategorias();
+$cats = $crud->getCategorias();
