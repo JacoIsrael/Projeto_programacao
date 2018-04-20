@@ -1,4 +1,5 @@
-<form method="post" action="">
+INSERIR
+<form method="post" action="?acao=inserir">
 
     <label for="nome">Nome</label>
     <input type="text" name="nome" id="nome"/>

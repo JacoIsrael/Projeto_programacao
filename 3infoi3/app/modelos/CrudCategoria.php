@@ -59,7 +59,7 @@ class CrudCategoria
     public function insertCategoria(Categoria $cat){
 
         $this->conexao = DBConnection::getConexao();
-        $sql = "insert into categoria (nome_categoria, descricao_categoria) values ('$cat->getNome()', '$cat->getDescricao')";
+        $sql = "insert into categoria (nome_categoria, descricao_categoria) values ('".$cat->getNome()."', '".$cat->getDescricao()."')";
         try{
             $this->conexao->exec($sql);
         }catch (PDOException $e){
@@ -70,7 +70,7 @@ class CrudCategoria
     public function updateCategoria(Categoria $cat){
 
         $this->conexao = DBConnection::getConexao();
-        $sql = "update categoria set (nome_categoria $cat->getNome()', descricao_categoria'$cat->getDescricao') where (id_categoria'$cat->getId')";
+        $sql = "update categoria set (nome_categoria = '".$cat->getNome()."', descricao_categoria = '".$cat->getDescricao."') where (id_categoria'$cat->getId')";
         try{
             $this->conexao->exec($sql);
         }catch (PDOException $e){
@@ -78,7 +78,7 @@ class CrudCategoria
         }
     }
 
-    public function deleteCategorias(int $id){
+    public function deleteCategoria(int $id){
         $sql = "DELETE FROM categoria WHERE (id_categoria->$id)";
         $this->conexao->exec($sql);
     }
