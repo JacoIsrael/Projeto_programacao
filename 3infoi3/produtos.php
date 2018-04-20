@@ -1,6 +1,6 @@
 <?php
 
-include ('cabecalho.php');
+include('cabecalho.php');
 
 if (isset($_GET['cat'])){
     if ($_GET['cat']==1){
