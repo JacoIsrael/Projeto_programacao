@@ -13,12 +13,16 @@ class Produtos
     private $nome;
     private $descricao;
     private $id_categoria;
+    private $foto_produto;
+    private $preco_produto;
 
-    public function __construct($id = null, $nome = null, $descricao = null, $id_categoria = null)
+    public function __construct($id = null, $nome = null, $descricao = null, $foto_produto = null, $preco_produto = null, $id_categoria = null)
     {
         $this->id = $id;
         $this->nome = $nome;
         $this->descricao = $descricao;
+        $this->foto_produto = $foto_produto;
+        $this->preco_produto = $preco_produto;
     }
 
     /**
@@ -84,6 +88,40 @@ class Produtos
     {
         $this->id_categoria = $id_categoria;
     }
+
+    /**
+     * @return null
+     */
+    public function getFotoProduto()
+    {
+        return $this->foto_produto;
+    }
+
+    /**
+     * @param null $foto_produto
+     */
+    public function setFotoProduto($foto_produto)
+    {
+        $this->foto_produto = $foto_produto;
+    }
+
+    /**
+     * @return null
+     */
+    public function getPrecoProduto()
+    {
+        return $this->preco_produto;
+    }
+
+    /**
+     * @param null $preco_produto
+     */
+    public function setPrecoProduto($preco_produto)
+    {
+        $this->preco_produto = $preco_produto;
+    }
+
+
 }
 
 
